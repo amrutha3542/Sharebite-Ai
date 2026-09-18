@@ -1,4 +1,4 @@
-# ShareBite AI 🌿
+# ShareBite AI 
 
 **AI-powered surplus food redistribution platform** — connects food donors, NGOs, beneficiaries and volunteers, and replaces manual WhatsApp/phone coordination with an explainable AI matching engine.
 
