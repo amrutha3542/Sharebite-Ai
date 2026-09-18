@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply text-ink bg-[#fbfdfc] antialiased; }
+  h1, h2, h3 { @apply font-extrabold tracking-tight; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 min-h-[42px] px-4 rounded-[10px] text-xs font-extrabold transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:hover:translate-y-0 cursor-pointer; }
+  .btn-primary { @apply btn text-white bg-leaf hover:bg-leafdark; }
+  .btn-ghost { @apply btn bg-white border border-line text-ink hover:border-leaf; }
+  .btn-light { @apply btn bg-mint text-leafdark; }
+  .btn-dark { @apply btn bg-ink text-white; }
+  .card { @apply bg-white rounded-2xl shadow-card p-5; }
+  .input { @apply w-full min-h-[42px] px-3 rounded-[10px] border border-line bg-white text-sm focus:outline-none focus:border-leaf focus:ring-2 focus:ring-leaf/20; }
+  .label { @apply block text-[10px] font-extrabold tracking-[.12em] text-moss uppercase mb-1.5; }
+  .eyebrow { @apply inline-flex items-center gap-2 text-leaf uppercase text-[10px] tracking-[.14em] font-extrabold; }
+  .eyebrow::before { content: ''; @apply inline-block w-5 h-0.5 bg-lime; }
+  .badge { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide; }
+}

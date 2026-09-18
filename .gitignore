@@ -1,0 +1,14 @@
+# Environment
+node_modules/
+*.db
+*.db-wal
+*.db-shm
+
+# Build output
+dist/
+
+# Env files
+.env
+
+# OS
+.DS_Store
