@@ -18,9 +18,20 @@ const { haversineKm } = require('./engine/geo');
 let io = null;
 const AVG_SPEED_KMH = 18; // demo ETA assumption for city delivery
 
-function initRealtime(server) {
+function initRealtime(server, { allowedOrigins = [] } = {}) {
   const { Server } = require('socket.io');
-  io = new Server(server, { cors: { origin: '*' } });
+  // Same-origin always allowed (no Origin header) + explicit allow-list.
+  // Keep local Vite dev working; prod same-server needs no extra config.
+  io = new Server(server, {
+    cors: {
+      origin: (origin, cb) => {
+        if (!origin) return cb(null, true);
+        if (allowedOrigins.includes(origin)) return cb(null, true);
+        if (origin === 'http://localhost:5173' || origin === 'http://127.0.0.1:5173') return cb(null, true);
+        return cb(new Error(`Socket CORS blocked for origin ${origin}`));
+      },
+    },
+  });
   io.on('connection', (socket) => {
     socket.on('join', ({ rooms = [] } = {}) => {
       (Array.isArray(rooms) ? rooms : [rooms]).forEach((r) => r && socket.join(r));
