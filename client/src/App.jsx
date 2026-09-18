@@ -76,9 +76,6 @@ export default function App() {
         </Routes>
       </main>
       <RealtimeToastHost />
-      <footer className="border-t border-line py-6 text-center text-xs text-moss">
-        <strong>ShareBite AI</strong> · AI-based surplus food redistribution · college project demo
-      </footer>
     </div>
   );
 }
